@@ -1,12 +1,29 @@
-.card-options {
-    &>* {
-        margin-right: 5px;
+mat-card {
+    border-left: 3px solid #fbbb00;
+    border-radius: 10px;
+    .card-content {
+        height: 150px;
     }
-    mat-icon {
-        color: white;
+    .card-options {
+        &>* {
+            margin-right: 5px;
+            color: #dddddd;
+            transition: all 0.4s;
+            &:hover {
+                color: #aaa;
+            }
+        }
+        button {
+            background: transparent;
+            border: none;
+            padding: 0;
+            &:hover {
+                color: rgb(236, 57, 57);
+            }
+        }
     }
 }
 
 .body-content {
-    margin-top: 200px;
+    margin-top: 150px;
 }

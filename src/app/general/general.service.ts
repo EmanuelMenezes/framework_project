@@ -45,8 +45,7 @@ export abstract class GeneralService<T extends GeneralModel> {
 
     getPhotosbyAlbum(id: number): Observable<T> {
     let url: string;
-    if (id) url = `${this.apiPath}/${id}/photos`;
-    else url = `${this.apiPath}`;
+    url = `${this.apiPath}/${id}/photos`;
     return this.http
       .get(url)
       .pipe(

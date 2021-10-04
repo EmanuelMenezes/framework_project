@@ -11,7 +11,12 @@
         <div class="body-content row">
             <ng-container *ngFor="let photo of photos">
                 <div class="col-md-3">
-                    <img src="{{photo.url}}" style="width: 100%;" alt="">
+                    <mat-card>
+                        <img src="{{photo.url}}" style="width: 100%;" alt="">
+                        <mat-card-footer>
+                            <span>{{photo.title}}</span>
+                        </mat-card-footer>
+                    </mat-card>
                 </div>
             </ng-container>
 

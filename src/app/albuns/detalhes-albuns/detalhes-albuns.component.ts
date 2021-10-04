@@ -13,6 +13,7 @@ import { AlbumService } from '../album.service';
 export class DetalhesAlbunsComponent extends GeneralDetail<Album>{
 
   photos : any
+  user: any
   constructor(    
     protected albumService: AlbumService,
     protected injector: Injector,) { 

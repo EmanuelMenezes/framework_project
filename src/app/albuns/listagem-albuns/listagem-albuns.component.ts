@@ -1,5 +1,6 @@
 import { collectExternalReferences } from '@angular/compiler';
 import { Component, Injector, OnInit, ɵɵqueryRefresh } from '@angular/core';
+import { element } from 'protractor';
 import { map, mapTo, switchMap } from 'rxjs/operators';
 import { GeneralListComponent } from 'src/app/general/general-list.component';
 import { User } from 'src/app/general/user.model';
@@ -19,18 +20,15 @@ export class ListagemAlbunsComponent extends GeneralListComponent<Album> {
     ['User ID', 'title'],
   ];
   key: string = 'id';
-  data: any;
-  userService: UserService
-  constructor(public injector: Injector, public albumService: AlbumService ) { 
+  data: any = "";
+  constructor(public injector: Injector, public userService: UserService , public albumService: AlbumService ) { 
     super(injector, albumService);
     this.userService = new UserService(injector);
  }
-  private user: User[];
 
   buscarDados(query = "") {
     this.albumService.getAll(query).subscribe(
       (resources) => {
-        console.log("entrou")
         this.resources = resources;
         this.dataSource = this.resources;
 

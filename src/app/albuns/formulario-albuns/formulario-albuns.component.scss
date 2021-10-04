@@ -1,0 +1,30 @@
+.form-body {
+    border-radius: 10px;
+    height: calc(100vh - 250px);
+    background: rgba(238, 238, 238, 0.5);
+    padding: 40px;
+    position: relative;
+    overflow-y: scroll;
+    border-left: 5px solid #673ab3;
+}
+
+.form-options {
+    width: auto;
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    button {
+        margin: 5px;
+    }
+    .mat-stroked-button {
+        border: #673ab3 1px solid;
+    }
+}
+
+mat-card {
+    button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+}

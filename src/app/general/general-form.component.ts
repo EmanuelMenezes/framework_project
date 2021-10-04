@@ -14,6 +14,7 @@ import {
   FormGroup,
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 import { switchMap } from "rxjs/operators";
 import { GeneralModel } from "./general.model";
 import { GeneralService } from "./general.service";
@@ -41,6 +42,8 @@ export abstract class GeneralForm<T extends GeneralModel>
     public resource: T,
     protected resourceService: GeneralService<T>,
     protected jsonDataToResourceFn: (jsonData) => T,
+        public toster: ToastrService,
+
     public ChaveEntidade: string,
     public Entidade: string
   ) {
@@ -112,7 +115,7 @@ export abstract class GeneralForm<T extends GeneralModel>
         .subscribe(
           (resource) => {
             this.resource = resource;
-            
+            console.log(resource)
             this.setFormArray(this.resourceForm, resource);
 
             this.resourceForm.patchValue(resource);
@@ -216,14 +219,18 @@ export abstract class GeneralForm<T extends GeneralModel>
   }
 
   protected actionsForSuccess(resource: T) {
+    this.toster.success("Solicitação processada com sucesso!");
+
     const [module, resources, method] = this.router.url.split("/");
 
     this.router.navigate([module, resources, "lista"]);
-    
+    console.log(resource);
     this.resource = resource;
   }
 
   protected actionsForError(error) {
+    this.toster.error("Ocorreu um erro ao processar a sua solicitação!");
+
     this.submittingForm = false;
 
     if (error.status === 422) {
