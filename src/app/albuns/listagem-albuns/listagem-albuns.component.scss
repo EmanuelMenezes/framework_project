@@ -1,0 +1,12 @@
+.card-options {
+    &>* {
+        margin-right: 5px;
+    }
+    mat-icon {
+        color: white;
+    }
+}
+
+.body-content {
+    margin-top: 200px;
+}

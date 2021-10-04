@@ -1,0 +1,39 @@
+.title {
+    position: fixed;
+    color: #444 !important;
+    padding: 15px 20px;
+    h1 {
+        font-size: 22px;
+        font-weight: 400;
+    }
+}
+
+.links {
+    height: 60px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    a {
+        border: .1875rem solid transparent;
+        color: #444;
+        vertical-align: middle;
+        text-decoration: none;
+        padding: 9px 20px;
+        line-height: 2.5;
+        font-size: 14px;
+        font-weight: 500;
+        &:focus {
+            color: #444;
+        }
+        mat-icon {
+            vertical-align: top;
+            margin-right: 5px;
+        }
+    }
+    .active {
+        border-bottom: .1875rem solid #673ab3;
+        color: #673ab3 !important;
+        border-left: .1875rem solid transparent;
+        border-right: .1875rem solid transparent;
+    }
+}

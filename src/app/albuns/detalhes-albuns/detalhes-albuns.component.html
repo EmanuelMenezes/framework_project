@@ -1,0 +1,20 @@
+<app-body>
+    <div class="" style="width: 100%;font-size: 15px;">
+        <div class="header-content">
+            <div class="list-title">
+                <h2>{{resource.title}}</h2>
+            </div>
+        </div>
+        <a mat-fab routerLink="/albuns/lista" class="back-btn" color="primary">
+            <mat-icon>undo</mat-icon>
+        </a>
+        <div class="body-content row">
+            <ng-container *ngFor="let photo of photos">
+                <div class="col-md-3">
+                    <img src="{{photo.url}}" style="width: 100%;" alt="">
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</app-body>

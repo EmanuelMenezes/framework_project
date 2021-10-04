@@ -1,0 +1,43 @@
+<app-body>
+    <div class="card" style="width: 100%;font-size: 15px;">
+        <div class="header-content d-flex">
+            <a mat-fab routerLink="/albuns/lista" class="back-btn" color="primary">
+                <mat-icon>undo</mat-icon>
+            </a>
+            <div class="header-text d-block">
+                <h5>Cargos</h5>
+                <span>{{ pageTitle }}</span>
+            </div>
+        </div>
+        <div class="body-content form-card">
+
+            <form [formGroup]="resourceForm" (submit)="submitForm()">
+                <mat-tab-group>
+                    <mat-tab label="Principal">
+                        <div class="form-body">
+                            <div class="form-row mt-2">
+                                <div class="col-md-3">
+                                    <div class="d-flex justify-content-between align-items-center mr-3">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Título do Álbum</mat-label>
+                                            <input type="text" matInput formControlName="title">
+
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+                <button mat-flat-button color="primary" class="mr-2 save-btn" type="submit" [disabled]="submittingForm || resourceForm.invalid">
+
+                    Salvar
+                </button>
+                <a mat-stroked-button class="secondary" routerLink="/albuns/lista">
+
+                    Voltar
+                </a>
+            </form>
+        </div>
+    </div>
+</app-body>
