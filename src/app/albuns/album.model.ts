@@ -5,7 +5,6 @@ import { User } from "../general/user.model";
 export class Album extends GeneralModel{
     constructor(
         public userId?: number,
-        public User?: User,
         public title?: string,
         public photos?: Photo[]
     ) {

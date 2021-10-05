@@ -20,9 +20,11 @@
                                 {{element.title}}
                                 <hr>
                             </mat-card-title>
-                            <mat-card-subtitle>
-                                Autor: {{element.User.name}}
+                            <mat-card-subtitle *ngFor="let user of data;">
+                                <span *ngIf="(element.userId == user.id) && checkSameValue(element.id)">Autor:
+                                    {{user.name}}</span>
                             </mat-card-subtitle>
+
                         </div>
                         <div class="card-options">
                             <a routerLink="/albuns/{{element.id}}/detalhes">

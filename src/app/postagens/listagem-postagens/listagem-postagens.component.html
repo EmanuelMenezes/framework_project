@@ -1,1 +1,45 @@
-<p>listagem-postagens works!</p>
+<app-body>
+    <div class="" style="width: 100%;font-size: 15px;">
+        <div class="header-content">
+            <div class="list-title">
+                <h2>Aqui você encontra uma coleção de posts!</h2>
+            </div>
+            <div class="filter-section">
+                <input placeholder="Pesquisar por título" (keyup)="applyFilter($event)" [(ngModel)]="filtroExpressao" #input>
+            </div>
+        </div>
+        <a mat-fab color="primary" class="new-btn" type="submit" routerLink="/postagens/novo">
+            <mat-icon>add</mat-icon>
+        </a>
+        <div class="body-content row">
+            <ng-container *ngFor="let element of dataSource">
+                <div class="col-md-4">
+                    <mat-card class="blurred-box">
+                        <div class="card-content">
+                            <mat-card-title>
+                                {{element.title}}
+                            </mat-card-title>
+                            <mat-card-content>
+                                {{element.body}}
+                            </mat-card-content>
+                            <hr>
+                            <mat-card-subtitle *ngFor="let user of data;">
+                                <span *ngIf="(element.userId == user.id) && checkSameValue(element.id)">Autor:
+                                    {{user.name}}</span>
+                            </mat-card-subtitle>
+
+                        </div>
+                        <div class="card-options">
+                            <a routerLink="/postagens/{{element.id}}/editar">
+                                <mat-icon>edit</mat-icon>
+                            </a>
+                            <button (click)="delete(element, element.id)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </mat-card>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</app-body>

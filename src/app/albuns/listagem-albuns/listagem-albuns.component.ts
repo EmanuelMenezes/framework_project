@@ -17,14 +17,27 @@ export class ListagemAlbunsComponent extends GeneralListComponent<Album> {
 
   displayedColumns: string[] = ['id', 'userId', 'title', 'Acoes'];
   displayedColumnsFilter: any[] = [
-    ['User ID', 'title'],
+    ['Título', 'title'],
+    ['ID', 'id'],
+    ['User ID', 'userId'],
   ];
   key: string = 'id';
-  data: any = "";
+  data: any[] = [];
+  check: any;
   constructor(public injector: Injector, public userService: UserService , public albumService: AlbumService ) { 
     super(injector, albumService);
     this.userService = new UserService(injector);
  }
+
+  checkSameValue(id){
+    if(this.check && (this.check == id)){
+      return false
+    }
+    else{
+      this.check = id;
+      return true
+    }
+  }
 
   buscarDados(query = "") {
     this.albumService.getAll(query).subscribe(
@@ -35,13 +48,10 @@ export class ListagemAlbunsComponent extends GeneralListComponent<Album> {
         this.dataSource.forEach(element => {
         this.userService.getById(element.userId).subscribe(
           (user) => {
-            this.data = user
-            this.dataSource[(element.id - 1)].User = this.data;
-
+            this.data.push(user);
           } 
         );
       });
-      console.log(this.dataSource)
     },
       (error) => console.log("Erro ao carregar a lista"));
   }

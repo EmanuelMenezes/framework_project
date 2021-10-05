@@ -1,1 +1,37 @@
-<p>formulario-postagens works!</p>
+<app-body>
+    <a mat-fab routerLink="/postagens/lista" class="back-btn" color="primary">
+        <mat-icon>undo</mat-icon>
+    </a>
+    <div class="header-content">
+        <div class="list-title">
+            <h2>{{ pageTitle }}</h2>
+        </div>
+    </div>
+    <div class="body-content">
+        <form [formGroup]="resourceForm" (submit)="submitForm()">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-body">
+                        <div class="">
+                            <mat-form-field class="example-full-width d-block">
+                                <mat-label>Título da Postagem</mat-label>
+                                <input type="text" matInput formControlName="title">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-options">
+                            <button mat-flat-button color="primary" type="submit" [disabled]="submittingForm || resourceForm.invalid">
+                                Salvar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-body row">
+                        <textarea name="" id="" cols="30" formControlName="body" rows="10"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</app-body>

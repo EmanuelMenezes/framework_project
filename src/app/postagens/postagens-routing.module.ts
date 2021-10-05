@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { DetalhesPostagensComponent } from "./detalhes-postagens/detalhes-postagens.component";
 import { FormularioPostagensComponent } from "./formulario-postagens/formulario-postagens.component";
 import { ListagemPostagensComponent } from "./listagem-postagens/listagem-postagens.component";
 
@@ -19,10 +18,6 @@ const routes: Routes = [
     {
         path: ":id/editar",
         component: FormularioPostagensComponent
-    },
-    {
-        path: ":id/detalhes",
-        component: DetalhesPostagensComponent
     },
 ];
 

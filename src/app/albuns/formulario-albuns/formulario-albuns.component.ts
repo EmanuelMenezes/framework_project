@@ -37,7 +37,6 @@ export class FormularioAlbunsComponent extends GeneralForm<Album> {
       id: [null],
       userId: [null],
       title: [null, [Validators.required]],
-      User: [null],
       photos: [null]
 
     });
@@ -78,12 +77,21 @@ export class FormularioAlbunsComponent extends GeneralForm<Album> {
     )).subscribe((resource) => {
       this.photos = resource;
       this.resourceForm.patchValue(this.resource);
-
       this.loadResourcesAfterViewInit();
 
     })
   }
-
+  gerarImagem(){
+    let hex_code = (Math.random() * 0xFFFFFF).toString(16).padStart(6, '0').slice(0,6).replace(".", "6");
+    let imagem = {
+      "albumId": this.resourceForm.value.id,
+      "title": "newImageHex"+hex_code,
+      "url": "https://via.placeholder.com/600/"+hex_code,
+      "thumbnailUrl": "https://via.placeholder.com/150/"+hex_code
+    }
+    this.photos.unshift(imagem);
+  } 
+  
   protected editionPageTitle(): string {
     const nomeAlbum = this.resource.title || "";
     this.key = "id";

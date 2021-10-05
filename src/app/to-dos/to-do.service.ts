@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
-
+import { Injectable, Injector } from '@angular/core';
+import { GeneralService } from '../general/general.service';
+import { ToDo } from './to-do.model';
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
-export class ToDoService {
+export class ToDoService extends GeneralService<ToDo> {
 
-  constructor() { }
+    constructor(protected injector: Injector) {
+        super("https://jsonplaceholder.typicode.com/todos", injector);
+    }
+
 }

@@ -1,1 +1,59 @@
-<p>listagem-to-dos works!</p>
+<app-body>
+    <div class="" style="width: 100%;font-size: 15px;">
+        <div class="header-content">
+            <div class="list-title">
+                <h2>Lista de afazeres agrupadas por usuário!</h2>
+            </div>
+        </div>
+        <a mat-fab color="primary" class="new-btn" type="submit" routerLink="/to-dos/novo">
+            <mat-icon>add</mat-icon>
+        </a>
+        <div class="body-content row">
+
+            <ng-container *ngFor="let user of data">
+                <div class="col-md-6">
+                    <mat-card>
+                        <div class="card-content">
+                            <mat-card-title>
+                                {{user.name}}
+                            </mat-card-title>
+                            <div class="task-card">
+                                <ng-container *ngFor="let element of dataSource">
+                                    <ng-container *ngIf="(element.userId == user.id)">
+                                        <div class="row">
+                                            <div class="col-11">
+                                                <mat-checkbox [(ngModel)]="element.completed" [color]="primary" (ngModelChange)="updateAllCompleted()">
+                                                    {{element.title}}
+                                                </mat-checkbox>
+                                                {{element.title}}
+                                            </div>
+                                            <div class="col-1">
+                                                <div class="task-options">
+                                                    <button (click)="delete(element, element.id)">
+                                                        <mat-icon>close</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <hr>
+                                    </ng-container>
+
+                                </ng-container>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </mat-card>
+                </div>
+            </ng-container>
+
+
+
+        </div>
+    </div>
+</app-body>
