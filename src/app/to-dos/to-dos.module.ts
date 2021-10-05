@@ -5,11 +5,9 @@ import { MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatIn
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToDosRoutingModule } from './to-dos-routing.module';
 import { ListagemToDosComponent } from './listagem-to-dos/listagem-to-dos.component';
-import { FormularioToDosComponent } from './formulario-to-dos/formulario-to-dos.component';
-import { DetalhesToDosComponent } from './detalhes-to-dos/detalhes-to-dos.component';
 
 @NgModule({
-  declarations: [ListagemToDosComponent, FormularioToDosComponent, DetalhesToDosComponent],
+  declarations: [ListagemToDosComponent],
   imports: [
     CommonModule,
     GeneralModule,
